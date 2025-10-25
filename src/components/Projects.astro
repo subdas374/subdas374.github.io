@@ -4,49 +4,57 @@ const projects = [
     title: "Network Lab Setup",
     description: "Configured a complete network lab with routers, switches, and workstations. Implemented DHCP server setup and inter-VLAN routing.",
     technologies: ["Cisco Packet Tracer", "DHCP", "VLANs", "Routing"],
-    image: "https://via.placeholder.com/400x300/2563eb/ffffff?text=Network+Lab"
+    image: "https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Network+Lab",
+    color: "from-blue-600 to-blue-700"
   },
   {
     title: "VLAN Configuration Project",
     description: "Designed and implemented VLAN segmentation for a multi-department network with trunk ports for inter-VLAN communication.",
     technologies: ["VLANs", "Trunking", "Switch Configuration"],
-    image: "https://via.placeholder.com/400x300/7c3aed/ffffff?text=VLAN+Setup"
+    image: "https://via.placeholder.com/600x400/0d9488/ffffff?text=VLAN+Setup",
+    color: "from-teal-600 to-teal-700"
   },
   {
     title: "Wireless Network Setup",
     description: "Configured wireless access points with proper security protocols including WPA2 encryption and MAC filtering.",
     technologies: ["WiFi", "WPA2", "Network Security"],
-    image: "https://via.placeholder.com/400x300/059669/ffffff?text=WiFi+Config"
+    image: "https://via.placeholder.com/600x400/0ea5e9/ffffff?text=WiFi+Config",
+    color: "from-cyan-600 to-cyan-700"
   },
   {
     title: "System Administration",
     description: "Practiced troubleshooting common system issues including backup failures, disk management, and file permissions.",
     technologies: ["Linux", "Windows Server", "Troubleshooting"],
-    image: "https://via.placeholder.com/400x300/dc2626/ffffff?text=SysAdmin"
+    image: "https://via.placeholder.com/600x400/7c3aed/ffffff?text=SysAdmin",
+    color: "from-purple-600 to-purple-700"
   }
 ];
 ---
 
-<section id="projects" class="py-20 px-4 bg-white dark:bg-gray-800">
-  <div class="container mx-auto max-w-6xl">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+<section id="projects" class="py-16 sm:py-20 md:py-24 px-4 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-7xl">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
       Projects & Lab Work
     </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-700 to-secondary-600 mx-auto mb-12 rounded-full"></div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {projects.map(project => (
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
-          <img src={project.image} alt={project.title} class="w-full h-48 object-cover" />
-          <div class="p-6">
-            <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+      {projects.map((project, index) => (
+        <div class="group bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 border border-gray-100 dark:border-gray-700">
+          <div class="relative overflow-hidden h-56 sm:h-64">
+            <div class={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`}></div>
+            <img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          </div>
+          <div class="p-6 sm:p-8">
+            <h3 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
               {project.title}
             </h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">
               {project.description}
             </p>
             <div class="flex flex-wrap gap-2">
               {project.technologies.map(tech => (
-                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+                <span class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg text-xs sm:text-sm font-medium hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
                   {tech}
                 </span>
               ))}
