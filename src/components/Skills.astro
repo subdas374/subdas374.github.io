@@ -2,50 +2,68 @@
 const skillCategories = [
   {
     title: "Hardware",
-    skills: ["Routers & Switches", "Network Devices", "PC Assembly", "Cable Management", "Server Hardware"]
+    skills: ["Routers & Switches", "Network Devices", "PC Assembly", "Cable Management", "Server Hardware"],
+    icon: "🖥️",
+    color: "from-blue-600 to-blue-700"
   },
   {
     title: "Networking",
-    skills: ["TCP/IP", "DHCP & DNS", "VLANs", "Routing Protocols", "Network Security", "Subnetting"]
+    skills: ["TCP/IP", "DHCP & DNS", "VLANs", "Routing Protocols", "Network Security", "Subnetting"],
+    icon: "🌐",
+    color: "from-teal-600 to-teal-700"
   },
   {
     title: "Operating Systems",
-    skills: ["Windows Server", "Linux/Ubuntu", "macOS", "Virtualization"]
+    skills: ["Windows Server", "Linux/Ubuntu", "macOS", "Virtualization"],
+    icon: "💻",
+    color: "from-indigo-600 to-indigo-700"
   },
   {
     title: "Tools & Software",
-    skills: ["Packet Tracer", "Wireshark", "VMware", "VirtualBox", "PuTTY"]
+    skills: ["Packet Tracer", "Wireshark", "VMware", "VirtualBox", "PuTTY"],
+    icon: "🛠️",
+    color: "from-cyan-600 to-cyan-700"
   },
   {
     title: "Programming",
-    skills: ["Python", "Bash Scripting", "PowerShell", "PHP", "Basic Web Development"]
+    skills: ["Python", "Bash Scripting", "PowerShell", "PHP", "Basic Web Development"],
+    icon: "💡",
+    color: "from-purple-600 to-purple-700"
   },
   {
     title: "Other Skills",
-    skills: ["Troubleshooting", "Documentation", "Customer Support", "Team Collaboration"]
+    skills: ["Troubleshooting", "Documentation", "Customer Support", "Team Collaboration"],
+    icon: "⚡",
+    color: "from-orange-600 to-orange-700"
   }
 ];
 ---
 
-<section id="skills" class="py-20 px-4 bg-gray-50 dark:bg-gray-900">
-  <div class="container mx-auto max-w-6xl">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+<section id="skills" class="py-16 sm:py-20 md:py-24 px-4 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto max-w-7xl">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white">
       Technical Skills
     </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary-700 to-secondary-600 mx-auto mb-12 rounded-full"></div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {skillCategories.map(category => (
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition">
-          <h3 class="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">
-            {category.title}
-          </h3>
-          <ul class="space-y-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {skillCategories.map((category, index) => (
+        <div class="group bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
+          <div class="flex items-center mb-6">
+            <div class={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center text-2xl shadow-lg`}>
+              {category.icon}
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold ml-4 text-gray-900 dark:text-white">
+              {category.title}
+            </h3>
+          </div>
+          <ul class="space-y-3">
             {category.skills.map(skill => (
-              <li class="flex items-center text-gray-700 dark:text-gray-300">
-                <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start text-gray-700 dark:text-gray-300 group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
+                <svg class="w-5 h-5 mr-3 text-secondary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
                 </svg>
-                {skill}
+                <span class="text-sm sm:text-base">{skill}</span>
               </li>
             ))}
           </ul>
