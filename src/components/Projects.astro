@@ -1,0 +1,59 @@
+---
+const projects = [
+  {
+    title: "Network Lab Setup",
+    description: "Configured a complete network lab with routers, switches, and workstations. Implemented DHCP server setup and inter-VLAN routing.",
+    technologies: ["Cisco Packet Tracer", "DHCP", "VLANs", "Routing"],
+    image: "https://via.placeholder.com/400x300/2563eb/ffffff?text=Network+Lab"
+  },
+  {
+    title: "VLAN Configuration Project",
+    description: "Designed and implemented VLAN segmentation for a multi-department network with trunk ports for inter-VLAN communication.",
+    technologies: ["VLANs", "Trunking", "Switch Configuration"],
+    image: "https://via.placeholder.com/400x300/7c3aed/ffffff?text=VLAN+Setup"
+  },
+  {
+    title: "Wireless Network Setup",
+    description: "Configured wireless access points with proper security protocols including WPA2 encryption and MAC filtering.",
+    technologies: ["WiFi", "WPA2", "Network Security"],
+    image: "https://via.placeholder.com/400x300/059669/ffffff?text=WiFi+Config"
+  },
+  {
+    title: "System Administration",
+    description: "Practiced troubleshooting common system issues including backup failures, disk management, and file permissions.",
+    technologies: ["Linux", "Windows Server", "Troubleshooting"],
+    image: "https://via.placeholder.com/400x300/dc2626/ffffff?text=SysAdmin"
+  }
+];
+---
+
+<section id="projects" class="py-20 px-4 bg-white dark:bg-gray-800">
+  <div class="container mx-auto max-w-6xl">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+      Projects & Lab Work
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map(project => (
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src={project.image} alt={project.title} class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.technologies.map(tech => (
+                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
