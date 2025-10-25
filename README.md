@@ -1,6 +1,6 @@
 # My Portfolio Website
 
-Hardware and Networking Student Portfolio
+Hardware and Networking  Portfolio
 
 ## 🚀 Deployed on GitHub Pages
 
